@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block content %}
+<div class="row">
+  <div class="col-lg-12 d-flex justify-content-between mt-4">
+    <div class="pull-left">
+      <h1>Events</h1>
+    </div>
+    <div class="pull-right mb-4">
+      <a class="btn btn-success" href="events/add"> Create New Event</a>
+    </div>
+  </div>
+</div>
+<table class="table table-bordered">
+  @for event in events
+  <tr>
+    <td>{{event.name}}</td>
+    <td bgcolor="{{ event.color }}">{{event.color}}</td>
+    <td>
+      <form action="" method="POST">
+        <a class="btn btn-info" href="/events/show/{{event.id}}">Show</a>
+        <a class="btn btn-danger" href="/events/delete/{{event.id}}">Delete</a>
+      </form>
+    </td>
+  </tr>
+  @endfor
+</table>
+{% endblock %}

@@ -1,0 +1,9 @@
+<form action="/event{{ event.id }}/update" method="POST">
+    {{ csrf_field }}
+    <label>Name</label>
+    <input type="text" name="name" value="{{ event.name }}">
+    <label>Color</label>
+    <input type="color" value="{{ event.color }}">
+    <input type="submit" value="Update">
+
+</form>
