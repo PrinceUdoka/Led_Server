@@ -10,8 +10,8 @@ class CreateEventsTable(Migration):
         """
         with self.schema.create("events") as table:
             table.increments("id")
-            table.string('name').unique()
-            table.string('color').default('#ffffff')
+            table.string('name')
+            table.string('color')
 
             table.timestamps()
 

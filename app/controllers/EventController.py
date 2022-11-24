@@ -7,7 +7,7 @@ from masonite.response import Response
 
 class EventController(Controller):
     def add(self, view: View):
-        return view.render('add')
+        return view.render('add_event')
 
     def index(self, view: View):
         events = Event.all()
@@ -32,7 +32,7 @@ class EventController(Controller):
 
         return view.render('single', {'event': event})
 
-    def delete(self, view: View, request: Request, response: Response):
+    def delete(self, request: Request, response: Response):
         event = Event.find(request.param('id'))
 
         event.delete()

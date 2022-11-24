@@ -5,7 +5,7 @@
       <h1>Events</h1>
     </div>
     <div class="pull-right mb-4">
-      <a class="btn btn-success" href="events/add"> Create New Event</a>
+      <a class="btn btn-success" href="/events/add"> Create New Event</a>
     </div>
   </div>
 </div>
@@ -16,7 +16,6 @@
     <td bgcolor="{{ event.color }}">{{event.color}}</td>
     <td>
       <form action="" method="POST">
-        <a class="btn btn-info" href="/events/show/{{event.id}}">Show</a>
         <a class="btn btn-danger" href="/events/delete/{{event.id}}">Delete</a>
       </form>
     </td>

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 mt-4 d-flex justify-content-between">
+        <div class="pull-left">
+            <h2>Add New Schedule</h2>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-primary" href="/schedules"> Back</a>
+        </div>
+    </div>
+</div>
+<form action="/schedules/create" method="POST" enctype="multipart/form-data">
+    {{ csrf_field }}
+
+     <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Starttime: </strong>
+                <input type="time" name="start_time" required>
+            </div>
+            @if errors.has('start_time')
+            <div class="text-danger"> 
+                <code>{{ errors.get('start_time')[0] }}</code>
+            </div>
+            @endif
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Event: </strong>
+                <select name="event_id" required>
+                    {% for event in events %}
+                        <option value="{{ event.id }}">{{ event.name }}</option>
+                        <p bgcolor="{{ event.color }}">{{event.color}}</p>
+                    {% endfor %}
+                    </select>
+            </div>
+            @if errors.has('event')
+            <div class="text-danger"> 
+                <code>{{ errors.get('event')[0] }}</code>
+            </div>
+            @endif
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

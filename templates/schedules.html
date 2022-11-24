@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+<div class="row">
+  <div class="col-lg-12 d-flex justify-content-between mt-4">
+    <div class="pull-left">
+      <h1>Schedules</h1>
+    </div>
+    <div class="pull-right mb-4">
+      <a class="btn btn-success" href="/schedules/add"> Create New Schedule</a>
+    </div>
+  </div>
+</div>
+<table class="table table-bordered">
+  @for schedule in schedules
+  <tr>
+    <td>{{schedule.start_time}}</td>
+    <td>{{schedule.event.name}}</td>
+    <td bgcolor="{{ schedule.event.color }}">{{schedule.event.color}}</td>
+    <td>
+      <a class="btn btn-danger" href="/schedules/delete/{{schedule.id}}">Delete</a>
+    </td>
+  </tr>
+  @endfor
+</table>
+{% endblock %}
